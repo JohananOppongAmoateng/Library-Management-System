@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 djoser = "*"
 djangorestframework = "*"
+celery = {extras = ["redis"], version = "*"}
 
 [dev-packages]
 
