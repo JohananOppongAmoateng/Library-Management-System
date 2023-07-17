@@ -40,9 +40,34 @@ INSTALLED_APPS = [
     "LibraryApi",
     
     # third party libraries
+    'django_filters',
     "rest_framework",
+    'rest_framework.authtoken',
     "djoser",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+DJOSER = {
+    # 'LOGIN_FIELD': 'email',
+    # 'USER_CREATE_PASSWORD_RETYPE': True,
+    # 'SERIALIZERS': {
+    #     'user_create': 'accounts.serializers.UserRegistrationSerializer',
+    # },
+    # 'TOKEN_MODEL': 'accounts.models.TokenModel',
+    # 'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
+    # 'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
+    # 'ACTIVATION_URL': 'activate/{uid}/{token}',
+    # 'SEND_ACTIVATION_EMAIL': True,
+    # 'SEND_CONFIRMATION_EMAIL': True,
+    # 'SET_PASSWORD_RETYPE': True,
+    # 'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': True,
+    # 'PASSWORD_RESET_CONFIRM_RETYPE': True,
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
